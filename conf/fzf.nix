@@ -1,12 +1,16 @@
 { config, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    fd
+  ];
+
   programs.fzf = {
     enable = true;
+    enableZshIntegration = true;
 
-    enableBashIntegration = true;
+    defaultCommand = "fd --type f --hidden --exclude .git";
 
-    defaultCommand = "find . -type f";
     defaultOptions = [
       "--height 40%"
       "--layout=reverse"
