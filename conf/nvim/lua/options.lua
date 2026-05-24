@@ -1,4 +1,5 @@
 -- Basic options
+vim.cmd("colorscheme slate")
 vim.opt.number = true
 
 vim.opt.expandtab = true

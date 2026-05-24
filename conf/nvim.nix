@@ -26,4 +26,5 @@
   home.file.".config/nvim/lua/plugins/lsp.lua".source = ./nvim/lua/plugins/lsp.lua;
   home.file.".config/nvim/lua/plugins/fzf.lua".source = ./nvim/lua/plugins/fzf.lua;
   home.file.".config/nvim/lua/plugins/git.lua".source = ./nvim/lua/plugins/git.lua;
+  home.file.".config/nvim/lua/plugins/treesitter.lua".source = ./nvim/lua/plugins/treesitter.lua;
 }
