@@ -6,12 +6,6 @@
 
   home.stateVersion = "25.11";
 
-  home.packages = with pkgs; [
-    tmux
-    tmuxp
-    ghq
-  ];
-
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -31,8 +25,12 @@
 
   programs.home-manager.enable = true;
 
+  home.packages = with pkgs; [
+    gnumake
+  ];
+
   imports = [
     ./conf/git.nix
     ./conf/tmux.nix
-  ]
+  ];
 }

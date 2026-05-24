@@ -8,7 +8,7 @@
   programs.git = {
     enable = true;
 
-    extraConfig = {
+    settings = {
       ghq.root = "~/ghq-src";
     };
   };
