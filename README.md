@@ -18,6 +18,18 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed_github
 ```
 
+GitHub に公開鍵を登録した後、以下のSSH設定を追加
+
+```
+mkdir -p ~/.ssh && cat >> ~/.ssh/config <<'EOF'
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed_github
+  IdentitiesOnly yes
+EOF
+```
+
 ### リポジトリのクローン
 
 ```
@@ -36,5 +48,13 @@ nix run home-manager/release-25.11 -- switch --flake .
 
 ```
 home-manager switch --flake .
+```
+
+## tmux
+
+### よく開くレイアウトで開く
+
+```
+tmuxp load {レイアウトを記載したyamlファイル}
 ```
 
