@@ -34,5 +34,6 @@
     ./conf/tmux.nix
     ./conf/fzf.nix
     ./conf/shell.nix
+    ./conf/nvim.nix
   ];
 }
