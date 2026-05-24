@@ -32,5 +32,6 @@
   imports = [
     ./conf/git.nix
     ./conf/tmux.nix
+    ./conf/fzf.nix
   ];
 }
