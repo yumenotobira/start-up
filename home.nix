@@ -19,6 +19,7 @@
   # environment.
   home.packages = with pkgs; [
     tmux
+    tmuxp
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

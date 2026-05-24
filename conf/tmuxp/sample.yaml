@@ -1,0 +1,13 @@
+session_name: sample
+start_directory: ~
+
+windows:
+  - window_name: first
+    panes:
+      - echo "hello tmuxp"
+
+  - window_name: work
+    panes:
+      - pwd
+      - ls
+
