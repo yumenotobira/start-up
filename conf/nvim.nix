@@ -9,6 +9,10 @@
       fzf-lua
       gitsigns-nvim
       nvim-treesitter
+      neo-tree-nvim
+      nvim-web-devicons
+      plenary-nvim
+      nui-nvim
     ];
   };
 
@@ -23,8 +27,10 @@
 
   home.file.".config/nvim/init.lua".source = ./nvim/init.lua;
   home.file.".config/nvim/lua/options.lua".source = ./nvim/lua/options.lua;
+  home.file.".config/nvim/lua/keymaps.lua".source = ./nvim/lua/keymaps.lua;
   home.file.".config/nvim/lua/plugins/lsp.lua".source = ./nvim/lua/plugins/lsp.lua;
   home.file.".config/nvim/lua/plugins/fzf.lua".source = ./nvim/lua/plugins/fzf.lua;
   home.file.".config/nvim/lua/plugins/git.lua".source = ./nvim/lua/plugins/git.lua;
   home.file.".config/nvim/lua/plugins/treesitter.lua".source = ./nvim/lua/plugins/treesitter.lua;
+  home.file.".config/nvim/lua/plugins/tree.lua".source = ./nvim/lua/plugins/tree.lua;
 }
