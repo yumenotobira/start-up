@@ -6,3 +6,23 @@ HISTFILE="$HOME/.zsh_history"
 # Options
 setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
+
+# Prompt
+PROMPT=$'%K{238}%F{white} %~ %F{238}%k\ue0b0 %f'
+
+# Git branch
+setopt transient_rprompt
+setopt PROMPT_SUBST
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr '+'
+zstyle ':vcs_info:git:*' unstagedstr '*'
+zstyle ':vcs_info:git:*' actionformats ' [%b|%a] '
+zstyle ':vcs_info:git:*' formats $'%F{white}\ue0b2%F{green}%K{white} %c%u[%b] %f%k'
+
+precmd() {
+	vcs_info
+}
+RPROMPT='${vcs_info_msg_0_}'
