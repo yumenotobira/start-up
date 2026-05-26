@@ -20,3 +20,13 @@ keymap("n", "<C-b>", "<cmd>FzfLua buffers<cr>", {
   desc = "Find buffers",
 })
 
+keymap("n", "H", "<C-w>h", {
+  silent = true,
+  desc = "Move to left window",
+})
+
+keymap("n", "L", "<C-w>l", {
+  silent = true,
+  desc = "Move to right window",
+})
+
