@@ -5,6 +5,7 @@
     ghq
     gh
     delta
+    lazygit
   ];
 
   programs.git = {

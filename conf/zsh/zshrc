@@ -26,3 +26,12 @@ precmd() {
 	vcs_info
 }
 RPROMPT='${vcs_info_msg_0_}'
+
+# EDITOR
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
