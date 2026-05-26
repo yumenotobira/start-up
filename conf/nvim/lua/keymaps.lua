@@ -5,7 +5,13 @@ keymap("n", "<C-e>", "<cmd>Neotree toggle filesystem left<cr>", {
   desc = "Toggle file tree",
 })
 
-keymap("n", "<C-f>", "<cmd>Neotree reveal filesystem left<cr>", {
+keymap("n", "<C-f>", "<cmd>FzfLua files<cr>", {
   silent = true,
-  desc = "Reveal current file in tree",
+  desc = "Find files",
 })
+
+keymap("n", "<C-g>", "<cmd>FzfLua live_grep<cr>", {
+  silent = true,
+  desc = "Live grep",
+})
+

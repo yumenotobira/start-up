@@ -50,6 +50,13 @@ nix run home-manager/release-25.11 -- switch --flake .
 home-manager switch --flake .
 ```
 
+## フォントの導入
+
+参考: https://qiita.com/hwatahik/items/acdd791abeef4ed13c45#fonts%E3%81%B8%E3%81%AE%E7%A7%BB%E5%8B%95
+
+Nerd fonts: https://www.nerdfonts.com/font-downloads
+現在の選択: SauceCodePro Nerd Font
+
 ## tmux
 
 ### よく開くレイアウトで開く

@@ -46,6 +46,14 @@ require("neo-tree").setup({
 
       ["R"] = "refresh",
       ["?"] = "show_help",
+
+      ["<C-f>"] = function()
+        require("fzf-lua").files()
+      end,
+
+      ["<C-g>"] = function()
+        require("fzf-lua").live_grep()
+      end,
     },
   },
 })
