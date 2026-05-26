@@ -15,7 +15,8 @@ keymap("n", "<C-g>", "<cmd>FzfLua live_grep<cr>", {
   desc = "Live grep",
 })
 
-vim.api.nvim_create_user_command("B", function()
-  require("fzf-lua").buffers()
-end, {})
+keymap("n", "<C-b>", "<cmd>FzfLua buffers<cr>", {
+  silent = true,
+  desc = "Find buffers",
+})
 
