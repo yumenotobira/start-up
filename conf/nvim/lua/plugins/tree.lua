@@ -48,10 +48,12 @@ require("neo-tree").setup({
       ["?"] = "show_help",
 
       ["<C-f>"] = function()
+        vim.cmd("wincmd p")
         require("fzf-lua").files()
       end,
 
       ["<C-g>"] = function()
+        vim.cmd("wincmd p")
         require("fzf-lua").live_grep()
       end,
     },
