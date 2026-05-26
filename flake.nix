@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of y";
+  description = "Home Manager configuration";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
@@ -20,7 +20,7 @@
       homeDirectory = "/home/${username}";
     in
     {
-      homeConfigurations."y" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.default = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         # Specify your home configuration modules here, for example,
