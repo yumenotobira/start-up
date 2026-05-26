@@ -15,6 +15,9 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+
+      username = builtins.getEnv "USER";
+      homeDirectory = "/home/${username}";
     in
     {
       homeConfigurations."y" = home-manager.lib.homeManagerConfiguration {
