@@ -35,5 +35,6 @@
     ./conf/fzf.nix
     ./conf/shell.nix
     ./conf/nvim.nix
+    ./conf/node.nix
   ];
 }
