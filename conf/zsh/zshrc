@@ -27,6 +27,25 @@ precmd() {
 }
 RPROMPT='${vcs_info_msg_0_}'
 
+# tmux pane border update hook
+function _update_tmux_pane_info() {
+	if [[ -n "$TMUX" ]]; then
+		(
+			local git_email=$(git config user.email 2>/dev/null || echo 'Out of Git')
+			local gh_auth=$(gh auth status 2>&1 | awk '/Logged in to/{print $7}')
+
+      # If the result is empty, it means not logged in (or not authenticated for this directory)
+			if [[ -z "$gh_auth" ]]; then
+				gh_auth="Not logged in"
+			fi
+			tmux set-option -p @pane_auth_info " ${git_email} |  ${gh_auth}" >/dev/null 2>&1
+		) &!
+	fi
+}
+
+add-zsh-hook chpwd _update_tmux_pane_info
+_update_tmux_pane_info
+
 # EDITOR
 export EDITOR="nvim"
 export VISUAL="nvim"
