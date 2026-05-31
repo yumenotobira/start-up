@@ -50,6 +50,59 @@ nix run home-manager/release-25.11 -- switch --flake .
 home-manager switch --flake .
 ```
 
+## Docker CEの導入
+
+WSL2上のUbuntuでDocker CEを使う前提です。Docker Desktopは使いません。
+
+Docker公式のapt repositoryを追加します。
+
+```
+sudo apt update
+sudo apt install ca-certificates curl util-linux-extra
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+sudo apt update
+```
+
+Docker CEをインストールします。
+
+```
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+Docker daemonを確認します。
+
+```
+sudo systemctl status docker
+sudo systemctl start docker
+```
+
+sudoなしで `docker` を使えるようにします。
+
+```
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+このリポジトリのセットアップを適用すると、Nix管理の `docker` CLI と `docker compose` も使えるようになります。
+
+```
+make setup
+docker --version
+docker compose version
+docker ps
+docker run hello-world
+```
+
 ## フォントの導入
 
 参考: https://qiita.com/hwatahik/items/acdd791abeef4ed13c45#fonts%E3%81%B8%E3%81%AE%E7%A7%BB%E5%8B%95
@@ -64,4 +117,3 @@ Nerd fonts: https://www.nerdfonts.com/font-downloads
 ```
 tmuxp load {レイアウトを記載したyamlファイル}
 ```
-

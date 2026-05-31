@@ -36,5 +36,6 @@
     ./conf/shell.nix
     ./conf/nvim.nix
     ./conf/node.nix
+    ./conf/docker.nix
   ];
 }
