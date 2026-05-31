@@ -8,6 +8,7 @@
       nvim-lspconfig
       fzf-lua
       gitsigns-nvim
+      diffview-nvim
       nvim-treesitter
       neo-tree-nvim
       nvim-web-devicons

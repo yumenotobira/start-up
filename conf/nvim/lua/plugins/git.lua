@@ -8,35 +8,30 @@ require("gitsigns").setup({
   },
 
   current_line_blame = false,
+})
 
-  on_attach = function(bufnr)
-    local gs = package.loaded.gitsigns
+vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", {
+  silent = true,
+  desc = "Show git diff",
+})
 
-    local function map(lhs, rhs, desc)
-      vim.keymap.set("n", lhs, rhs, {
-        buffer = bufnr,
-        silent = true,
-        desc = desc,
-      })
+vim.keymap.set("n", "<leader>gb", function()
+  vim.ui.input({
+    prompt = "Base branch: ",
+    default = "origin/main",
+  }, function(base)
+    if not base or base == "" then
+      return
     end
 
-    map("]c", function()
-      if vim.wo.diff then
-        vim.cmd.normal({ "]c", bang = true })
-      else
-        gs.nav_hunk("next")
-      end
-    end, "Next git hunk")
+    vim.cmd("DiffviewOpen " .. vim.fn.fnameescape(base) .. "...HEAD")
+  end)
+end, {
+  silent = true,
+  desc = "Show git diff against base branch",
+})
 
-    map("[c", function()
-      if vim.wo.diff then
-        vim.cmd.normal({ "[c", bang = true })
-      else
-        gs.nav_hunk("prev")
-      end
-    end, "Previous git hunk")
-
-    map("gh", gs.preview_hunk, "Preview hunk")
-    map("gb", gs.blame_line, "Blame line")
-  end,
+vim.keymap.set("n", "<leader>gq", "<cmd>DiffviewClose<cr>", {
+  silent = true,
+  desc = "Close git diff view",
 })
