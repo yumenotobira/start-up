@@ -19,4 +19,5 @@ setup-pnpm:
 .PHONY: install-global-tools
 install-global-tools:
 	$(PNPM_ENV) pnpm add -g @github/copilot
+	$(PNPM_ENV) pnpm add -g @openai/codex
 
