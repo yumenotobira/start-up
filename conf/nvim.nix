@@ -9,11 +9,32 @@
       fzf-lua
       gitsigns-nvim
       diffview-nvim
-      nvim-treesitter
       neo-tree-nvim
       nvim-web-devicons
       plenary-nvim
       nui-nvim
+
+      (nvim-treesitter.withPlugins (p: with p; [
+        python
+
+        javascript
+        typescript
+        tsx
+
+        html
+        css
+        json
+        yaml
+        toml
+
+        lua
+        vim
+        vimdoc
+
+        bash
+        markdown
+        markdown_inline
+      ]))
     ];
   };
 
