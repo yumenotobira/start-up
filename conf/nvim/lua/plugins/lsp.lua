@@ -13,6 +13,10 @@ local on_attach = function(_, bufnr)
     desc = "Hover documentation",
   }))
 
+  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, {
+    desc = "Rename symbol",
+  }))
+
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, vim.tbl_extend("force", opts, {
     desc = "Previous diagnostic",
   }))
