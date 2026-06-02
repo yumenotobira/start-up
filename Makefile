@@ -14,7 +14,7 @@ PNPM_ENV := PNPM_HOME="$(PNPM_HOME)" PATH="$(PNPM_HOME):$$PATH"
 setup-pnpm:
 	mkdir -p "$(PNPM_HOME)"
 	$(PNPM_ENV) pnpm config set global-bin-dir "$(PNPM_HOME)"
-	$(PNPM_ENV) pnpm config set --global minimumReleaseAge 10080
+	$(PNPM_ENV) pnpm config set --global minimumReleaseAge 4320
 
 .PHONY: install-global-tools
 install-global-tools:
