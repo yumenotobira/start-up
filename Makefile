@@ -20,4 +20,5 @@ setup-pnpm:
 install-global-tools:
 	$(PNPM_ENV) pnpm add -g @github/copilot
 	$(PNPM_ENV) pnpm add -g @openai/codex
+	$(PNPM_ENV) pnpm add -g @anthropic-ai/claude-code
 
