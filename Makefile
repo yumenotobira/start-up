@@ -20,6 +20,6 @@ setup-pnpm:
 install-global-tools:
 	$(PNPM_ENV) pnpm add -g @github/copilot
 	$(PNPM_ENV) pnpm add -g @openai/codex
-	$(PNPM_ENV) pnpm add -g @ast-grep/cli
+	$(PNPM_ENV) pnpm add -g --allow-build=@ast-grep/cli @ast-grep/cli
 	curl -fsSL https://claude.ai/install.sh | bash
 
