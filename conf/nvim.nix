@@ -10,6 +10,7 @@
       gitsigns-nvim
       diffview-nvim
       neo-tree-nvim
+      bufferline-nvim
       nvim-web-devicons
       plenary-nvim
       nui-nvim
@@ -55,4 +56,5 @@
   home.file.".config/nvim/lua/plugins/git.lua".source = ./nvim/lua/plugins/git.lua;
   home.file.".config/nvim/lua/plugins/treesitter.lua".source = ./nvim/lua/plugins/treesitter.lua;
   home.file.".config/nvim/lua/plugins/tree.lua".source = ./nvim/lua/plugins/tree.lua;
+  home.file.".config/nvim/lua/plugins/bufferline.lua".source = ./nvim/lua/plugins/bufferline.lua;
 }
