@@ -1,6 +1,31 @@
+-- Delete a buffer without closing its window (or nvim). If the window is
+-- showing the buffer being deleted, switch it to another listed buffer first.
+local function delete_buffer(bufnr)
+  bufnr = bufnr or vim.api.nvim_get_current_buf()
+
+  local others = vim.tbl_filter(function(buf)
+    return buf ~= bufnr and vim.bo[buf].buflisted
+  end, vim.api.nvim_list_bufs())
+
+  if #others > 0 then
+    -- Point any window currently displaying this buffer at another buffer
+    -- so the window stays open after the delete.
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+      if vim.api.nvim_win_get_buf(win) == bufnr then
+        vim.api.nvim_win_set_buf(win, others[1])
+      end
+    end
+  end
+
+  vim.api.nvim_buf_delete(bufnr, {})
+end
+
 require("bufferline").setup({
   options = {
     mode = "buffers",
+
+    close_command = delete_buffer,
+    right_mouse_command = delete_buffer,
 
     diagnostics = "nvim_lsp",
     diagnostics_indicator = function(count, level)
@@ -36,19 +61,7 @@ keymap("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", {
 })
 
 keymap("n", "<leader>bd", function()
-  local current = vim.api.nvim_get_current_buf()
-
-  local others = vim.tbl_filter(function(buf)
-    return buf ~= current and vim.bo[buf].buflisted
-  end, vim.api.nvim_list_bufs())
-
-  -- Switch the window to another buffer before deleting so the window
-  -- (and nvim itself) stays open. Only the focused buffer is removed.
-  if #others > 0 then
-    vim.cmd("BufferLineCyclePrev")
-  end
-
-  vim.api.nvim_buf_delete(current, {})
+  delete_buffer()
 end, {
   silent = true,
   desc = "Delete current buffer",
