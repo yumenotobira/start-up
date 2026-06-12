@@ -3,10 +3,16 @@
 {
   home.packages = with pkgs; [
     ghq
-    gh
     delta
     lazygit
   ];
+
+  programs.gh = {
+    enable = true;
+    extensions = with pkgs; [
+      gh-dash
+    ];
+  };
 
   programs.git = {
     enable = true;

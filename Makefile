@@ -5,7 +5,7 @@ setup: switch setup-pnpm install-global-tools
 
 .PHONY: switch
 switch:
-	home-manager switch --flake .#default --impure
+	home-manager switch -b backup --flake .#default --impure
 
 PNPM_HOME := $(HOME)/.local/share/pnpm
 PNPM_ENV := PNPM_HOME="$(PNPM_HOME)" PATH="$(PNPM_HOME):$$PATH"
