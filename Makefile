@@ -1,7 +1,10 @@
 .DEFAULT_GOAL := setup
 
 .PHONY: setup
-setup: switch setup-pnpm install-global-tools
+setup: switch
+
+.PHONY: install
+install: setup-pnpm install-global-tools
 
 .PHONY: switch
 switch:
