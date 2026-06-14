@@ -46,6 +46,7 @@
     nodePackages.typescript-language-server
     typescript
     pyright
+    yaml-language-server
   ];
 
   home.file.".config/nvim/init.lua".source = ./nvim/init.lua;

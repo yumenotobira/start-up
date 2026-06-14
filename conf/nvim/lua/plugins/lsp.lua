@@ -34,7 +34,24 @@ vim.lsp.config("pyright", {
   on_attach = on_attach,
 })
 
+vim.lsp.config("yamlls", {
+  on_attach = on_attach,
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://gh-dash.dev/schema.json"] = {
+          ".gh-dash.yaml",
+          ".gh-dash.yml",
+          "**/.gh-dash.yaml",
+          "**/.gh-dash.yml",
+        },
+      },
+    },
+  },
+})
+
 vim.lsp.enable({
   "ts_ls",
   "pyright",
+  "yamlls",
 })
