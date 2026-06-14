@@ -50,6 +50,9 @@ _update_tmux_pane_info
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+# Windowsのデフォルトブラウザで開くための設定
+export BROWSER='/mnt/c/Windows/System32/rundll32.exe url.dll,FileProtocolHandler'
+
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
