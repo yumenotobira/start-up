@@ -38,5 +38,6 @@
     ./conf/nvim.nix
     ./conf/node.nix
     ./conf/docker.nix
+    ./conf/hunk.nix
   ];
 }
