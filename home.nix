@@ -28,6 +28,7 @@
   home.packages = with pkgs; [
     gnumake
     jq
+    tree
   ];
 
   imports = [
