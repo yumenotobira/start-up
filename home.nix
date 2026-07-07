@@ -41,5 +41,6 @@
     ./conf/uv.nix
     ./conf/docker.nix
     ./conf/hunk.nix
+    ./conf/cctrace.nix
   ];
 }
