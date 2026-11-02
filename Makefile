@@ -8,7 +8,7 @@ install: setup-pnpm install-global-tools install-gh-extensions
 
 .PHONY: switch
 switch:
-	home-manager switch -b backup --flake .#default --impure
+	home-manager switch --flake .#default --impure
 
 PNPM_HOME := $(HOME)/.local/share/pnpm
 PNPM_ENV := PNPM_HOME="$(PNPM_HOME)" PATH="$(PNPM_HOME):$$PATH"

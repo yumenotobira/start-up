@@ -41,13 +41,15 @@ git clone git@github.com:yumenotobira/start-up.git
 ### 初回適用
 
 ```
-nix run home-manager/release-25.11 -- switch --flake .
+nix run home-manager/release-25.11 -- switch --flake .#default --impure
 ```
+
+`flake.nix` は `homeConfigurations.default` を定義し、ユーザー名を `$USER` から読むため `.#default` と `--impure` が必要です。
 
 ### 2回目以降適用
 
 ```
-home-manager switch --flake .
+make switch
 ```
 
 ## Docker CEの導入
