@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   home.packages = with pkgs; [
@@ -9,6 +9,8 @@
 
   programs.gh = {
     enable = true;
+    # issue への画像添付 (--attach) は v2.99.0+ のため unstable から取る
+    package = pkgs-unstable.gh;
   };
 
   programs.git = {
